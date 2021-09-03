@@ -1,0 +1,32 @@
+/*
+
+Write an algorithm to compute the square root of a given non-negative number. Since the true square root of a number may have infinitely many digits, we bound the accuracy of the square root by a second parameter, called the error.
+
+For a given number target and error e, find a square root x that satisfies the following:
+math.abs(x**2 - target) < e
+
+e.g. SquareRoot(target=100.0, error=2.0) = 
+  9.9**2 = 98.01
+
+ */
+
+
+ 
+validate binary search tree
+
+               50
+         20            200
+     5      30      60     
+              35      190
+                     70
+                     
+validate(root)
+
+Node:
+  int value
+  Node* left
+  Node* right
+
+all values unique
+
+
