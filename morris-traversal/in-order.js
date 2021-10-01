@@ -1,28 +1,28 @@
 var inorderTraversal = function (root) {
-  let cur = root;
+  let node = root;
   const result = [];
-  while (cur) {
-    if (!cur.left) {
-      result.push(cur.val);
-      cur = cur.right;
+  while (node) {
+    if (!node.left) {
+      result.push(node.val);
+      node = node.right;
     } else {
-      predecessor = findPredecessor(cur);
-      if (!predecessor.right) {
-        predecessor.right = cur;
-        cur = cur.left;
+      const pred = findPredecessor(node);
+      if (pred.right === node) {
+        pred.right = null;
+        result.push(node.val);
+        node = node.right;
       } else {
-        predecessor.rights = null;
-        result.push(cur.val);
-        cur = cur.right;
+        pred.right = node;
+        node = node.left;
       }
     }
   }
   return result;
 };
-
 function findPredecessor(root) {
-  if (!root.left) return root;
-  let cur = root.left;
-  while (cur.right && cur.right !== root) cur = cur.right;
-  return cur;
+  let node = root.left;
+  while (node.right && node.right !== root) {
+    node = node.right;
+  }
+  return node;
 }
