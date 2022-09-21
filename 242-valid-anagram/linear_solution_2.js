@@ -1,15 +1,15 @@
 var isAnagram = function (s, t) {
-  if (s.length !== t.length) return false;
-  const count = {};
-  const N = s.length;
-  for (let i = 0; i < N; i++) {
-    if (!count[s[i]]) count[s[i]] = 0;
-    if (!count[t[i]]) count[t[i]] = 0;
-    count[s[i]]++;
-    count[t[i]]--;
-  }
-  for (let ch in count) {
-    if (count[ch] !== count[ch]) return false;
-  }
-  return true;
+    if(s.length !== t.length) return false
+    const N = s.length
+    const letterFrequency = {}
+    for(let i=0;i<N;i++) {
+        if(!letterFrequency[s[i]]) letterFrequency[s[i]] = 0
+        if(!letterFrequency[t[i]]) letterFrequency[t[i]] = 0
+        letterFrequency[s[i]]++
+        letterFrequency[t[i]]--
+    }
+    for(let ch in letterFrequency) {
+        if(letterFrequency[ch]!==0) return false
+    }
+    return true
 };
